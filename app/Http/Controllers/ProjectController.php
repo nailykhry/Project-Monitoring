@@ -13,7 +13,7 @@ class ProjectController extends Controller
     {
        $projects = Project::all();
         return view('index', [
-            'projects' => Project::oldest()->filter(request(['search']))->paginate(5)->withQueryString(),
+            'projects' => Project::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
         ]);
     }
 
